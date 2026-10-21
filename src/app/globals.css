@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+/* Design tokens: the source of truth referenced by docs/design.md. */
+@theme {
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-urbanist), var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+
+  /* NEXT A.I identity (brand/next-ai): forest green #062F28, lime #9FE870. */
+  --color-canvas: #ebebea;
+  --color-surface: #ffffff;
+  --color-line: #e3e4e1;
+  --color-line-strong: #cdd2cc;
+  --color-ink: #062f28;
+  --color-ink-soft: #43534e;
+  --color-ink-muted: #5f6a66;
+
+  --color-sidebar: #062f28;
+  --color-sidebar-hover: #0e453a;
+  --color-sidebar-ink: #c7d9d1;
+
+  --color-brand: #062f28;
+  --color-brand-strong: #0e453a;
+  --color-brand-soft: #e6eeeb;
+  /* Lime is a fill or highlight, never text on white (1.4:1). */
+  --color-accent: #9fe870;
+
+  --color-positive: #2b6510;
+  --color-positive-soft: #e6f7da;
+  --color-critical: #b93526;
+  --color-critical-soft: #fbe8e5;
+  --color-attention: #8f5300;
+  --color-attention-soft: #fdf0da;
+
+  --radius-card: 1rem;
+  --shadow-card: 0 1px 2px rgb(6 47 40 / 0.04), 0 4px 16px rgb(6 47 40 / 0.05);
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
